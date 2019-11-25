@@ -5,16 +5,22 @@
 
 
 var _times = ['9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM'];
-/*<div class="row schedule-hour">          
-    <div class="col-sm-3 time-of-day">
-        9 AM
-    </div>
-    <textarea class="col-sm-6 schedule-plan"rows="3" cols="100"> </textarea>
-    <div class="col-sm-3 save"> 
-        <i class="icon-save icon-2.5"></i>
-    </div>
-</div>
-*/
+var save = $(".save");
+
+var schedule = [];
+//create an object that stores plan and time
+for (var j = 0; j < _times.length; j++)
+    {
+        schedule[j]= {
+                    time: _times[j],
+                    plan: ""       
+               };
+    }
+
+
+
+
+
 $(document).ready(function()
     {
     // for all the times after 9 
@@ -23,30 +29,51 @@ $(document).ready(function()
         // create a text area with attribute class: col-sm-6 scheduleplan rows=3 cols=100
         // create a div containing an <i> with attribute class: icon-save col-sm-3 and an <i> 
 
-        for(var i = 1; i < _times.length-1; i++ )
+        for(var i = 0; i < _times.length; i++ )
             {
                 var scheduleHour = $("<div>").attr({class:"schedule-hour row", id:_times[i]});
 
                 var timeOfDay = $("<div>").attr({class:"col-sm-3 time-of-day"}).html(_times[i]);
 
-                var textbox = $("<textarea>").attr({class:"col-sm-6 schedule-plan rows='3' cols='100' "});
+                var textbox = $("<textarea>").attr({class:"col-sm-6 schedule-plan rows='3' cols='100' ",id:"text-"+_times[i]});
+                // if the text box does have a previously stored value, 
+                    // set box to that value
+                
+                
+
 
                 var save = $("<div>").attr({class:"col-sm-3 save"});
 
-                var icon = $("<i>").attr({class:"icon-save icon-3x"});
-
+                var icon = $("<i>").attr({class:"icon-save icon-3x ",id:"save-"+_times[i]});
                 icon.appendTo(save);
-                
 
                 timeOfDay.appendTo(scheduleHour);
                 textbox.appendTo(scheduleHour);
                 save.appendTo(scheduleHour);
                 scheduleHour.appendTo("#schedule");
-            
-
-
             }
     });
   
+
+// on click of the save box
+    // the textbox corresponding to the time will be pushed to an object with t
+
+
+document.addEventListener("click",function(event){
+    event.preventDefault();
+    console.log(event.target);
+    event.stopPropagation();
+    for(var i = 0; i< _times.length; i++)
+        {
+            if(event.target.matches("#save-"+_times[i]))
+                {
+                   var Plan = $("#text-"+_times[i]).val();  // Get the value of the string that correlates to the save
+                   // store the plan in the schedule
+                    schedule[i].plan = Plan;
+                
+                }
+        }
+});
+
 
 
