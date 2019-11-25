@@ -9,20 +9,28 @@ var save = $(".save");
 
 var schedule = [];
 //create an object that stores plan and time
-for (var j = 0; j < _times.length; j++)
-    {
-        schedule[j]= {
-                    time: _times[j],
-                    plan: ""       
-               };
-    }
-
-
+//check if any schedule is stored in localStorage
 
 
 
 $(document).ready(function()
     {
+
+
+        if(localStorage.getItem("schedule")!=null)
+        {
+            schedule = JSON.parse(localStorage.getItem("schedule"));
+        }
+        else
+        {
+            for (var j = 0; j < _times.length; j++)
+                {
+                    schedule[j]= {
+                                    time: _times[j],
+                                    plan: ""       
+                                };
+                }
+        }
     // for all the times after 9 
         // create a div container with attributes class: schedule-hour row AND attribute id: times[i]
         // create a div with the time 
@@ -38,7 +46,7 @@ $(document).ready(function()
                 var textbox = $("<textarea>").attr({class:"col-sm-6 schedule-plan rows='3' cols='100' ",id:"text-"+_times[i]});
                 // if the text box does have a previously stored value, 
                     // set box to that value
-                
+                textbox.html(schedule[i].plan);   
                 
 
 
@@ -61,7 +69,7 @@ $(document).ready(function()
 
 document.addEventListener("click",function(event){
     event.preventDefault();
-    console.log(event.target);
+   
     event.stopPropagation();
     for(var i = 0; i< _times.length; i++)
         {
@@ -70,9 +78,10 @@ document.addEventListener("click",function(event){
                    var Plan = $("#text-"+_times[i]).val();  // Get the value of the string that correlates to the save
                    // store the plan in the schedule
                     schedule[i].plan = Plan;
-                
                 }
         }
+        
+        localStorage.setItem("schedule",JSON.stringify(schedule));
 });
 
 
