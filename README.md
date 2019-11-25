@@ -2,7 +2,7 @@
 
 url: https://jragni.github.io/workDayScheduler/
 
-![Landing Page](/landingPage.jpeg)
+![Landing Page](/landingPage.jpg)
  A simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 The app should display standard business hours (9 a.m. to 5 p.m.). Each time slot should represent one hour and contain the following:
 
