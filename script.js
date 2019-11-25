@@ -69,22 +69,22 @@ $(document).ready(function()
                 var Time = $("#current-time");
                 if (moment().hour() > 12)
                 {   
-                    Time.html( (moment().hour()-12) + ":" + moment().minute() + ":" + moment().second() + " PM");
+                    Time.html( (moment().hour()-12) + ":" + moment().minute() + ":" + moment().second() + " PM"+"<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
                     if (moment().minute()<10)
                     {
                         // add a 0 to the time if less than 10
-                        Time.html( (moment().hour()-12) + ":" + "0" +moment().minute() + ":" + moment().second() + " PM");
+                        Time.html( (moment().hour()-12) + ":" + "0" +moment().minute() + ":" + moment().second() + " PM"+"<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
                     }
 
 
                 } 
                 else
                 {
-                Time.html(moment().hour() + ":" + moment().minute() + ":" + moment().second() + " AM");
+                Time.html(moment().hour() + ":" + moment().minute() + ":" + moment().second() + " AM" + "<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
                 if (moment().minute()<10)
                 {
                     // add a 0 to the time if less than 10
-                    Time.html(moment().hour() + ":" + "0" +moment().minute() + ":" + moment().second() + " AM");
+                    Time.html(moment().hour() + ":" + "0" +moment().minute() + ":" + moment().second() + " AM"+"<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
                 }
                 }
 
