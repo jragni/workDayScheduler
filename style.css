@@ -1,0 +1,38 @@
+#headerBox{
+    margin: 25px;
+    text-align: center;
+    line-height: 25px;
+}
+
+#headerLine{
+    font-family: 'Pacifico', cursive;
+
+}
+
+.schedule-container{
+    padding: 25px
+}
+
+.schedule-plan{
+    font-size: 18pt;
+    font-family: 'Courgette', cursive;
+    border: none;
+    
+}
+
+.save{
+  padding: 25px;
+}
+.time-of-day{
+ /*font-family: 'Asap', sans-serif; */
+ /*   font-family: 'Pacifico', cursive; */
+    font-family: 'Permanent Marker', cursive;
+    font-size:26pt;
+    text-align:right;
+    padding:25px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 1px black solid;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+}
