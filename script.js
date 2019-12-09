@@ -79,14 +79,14 @@ $(document).ready(function()
 
                 } 
                 else
-                {
-                Time.html(moment().hour() + ":" + moment().minute() + ":" + moment().second() + " AM" + "<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
-                if (moment().minute()<10)
-                {
-                    // add a 0 to the time if less than 10
-                    Time.html(moment().hour() + ":" + "0" +moment().minute() + ":" + moment().second() + " AM"+"<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
-                }
-                }
+                    {
+                    Time.html(moment().hour() + ":" + moment().minute() + ":" + moment().second() + " AM" + "<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
+                    if (moment().minute()<10)
+                        {
+                            // add a 0 to the time if less than 10
+                            Time.html(moment().hour() + ":" + "0" +moment().minute() + ":" + moment().second() + " AM"+"<br>"+moment().month()+"-"+ moment().date()+ "-" + moment().year());
+                        }
+                    }
 
                 UpdatePlannerTimeBlocks();
                 
